@@ -1,3 +1,6 @@
+import java.io.File
+import java.lang.IllegalStateException
+
 /*
 * 
 *  @author Sabirov Jakhongir  
@@ -58,10 +61,63 @@ fun main(){
     println(Resource.name)
     println(Resource.name)
 
+    val value = "fe"
+    // Execute if not null
+    value?.let{
+        print("not null !!!!!")
+    }
+
+    //map nullable value if not null
+    val lt = mapOf("this" to 2)
+    val mapped = lt?.let { it } ?: "other value"
+
+
+
+    val myObject = object : MyAbstractClass(){
+        override fun doSomething() {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun sleep() {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+    }
+   // myObject.doSomething()
+
+
+    val files = File("Test").listFiles()
+
+    println(files?.size) // size is printed if files is not null
+
+    //if not null shorthand
+    println(files?.size ?: "empty") // if has size will show size if not then print empty
+
+
+    val values = mapOf("a" to 1)
+    //Execute statement if null
+    val email = values["email"] ?: throw IllegalStateException("Email is missing")
+
+
+    val ls = listOf("salom","ular","bular")
+    //Get first item of possibly empty collection
+    val mainMail = ls.firstOrNull() ?: ""
+    println("$mainMail")
+
+
+
 }
 
 data class Customer(val name:String,val email:String)
 
+//This create singleton
 object Resource{
     val name = "name"
+}
+
+
+// create abstarct class and declare method as abstract
+abstract class MyAbstractClass{
+    abstract fun doSomething()
+    abstract fun sleep()
 }
