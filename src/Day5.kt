@@ -27,7 +27,7 @@ fun main(){
     val multiplyResult = calculate(3,2){a,b -> a * b}
     println("summa: $sumResut  multiply:$multiplyResult")
 
-    // example of partition partition will return found not found pair 
+    // example of partition partition will return found not found pair
     val numbers = listOf(2,12,3,5,7,8,9,12,0,-12)
     val (positives, negatives) = numbers.partition { it > 0 }
     print("$positives $negatives")
